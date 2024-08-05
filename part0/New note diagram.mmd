@@ -1,0 +1,15 @@
+sequenceDiagram
+Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+Server-->>Browser: HTTP status code 302
+Note right of Browser: URL redirect to https://studies.cs.helsinki.fi/exampleapp/notes
+Browser->>Server: GET https://studies.cs.helinki.fi/exampleapp/notes
+Server-->>Browser: HTML document
+Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server-->>Browser: CSS file
+Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Server-->>Browser: JavaScript file
+Note right of Browser: The browser starts executing the JavaScript code that fetches the JSON from the server
+Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server-->>Browser: [{"content": "test", "date": "2024-08-05T09:23:08.469Z"}, ... ]
+Note right of Browser: The browser executes the callback function that renders the notes
+
